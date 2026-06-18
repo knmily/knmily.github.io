@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kamrun Nahar Mily – PhD Candidate in Mathematics</title>
+  <meta name="description" content="Kamrun Nahar Mily is a PhD Candidate in Applied Mathematics at the University of Houston, specializing in Agent-Based Modeling for Crowd and Crime Dynamics." />
+  <meta name="keywords" content="Kamrun Nahar Mily, PhD Mathematics, University of Houston, Agent-Based Modeling, Crowd Dynamics, Applied Mathematics" />
+  <meta name="author" content="Kamrun Nahar Mily" />
+  <meta property="og:title" content="Kamrun Nahar Mily – Academic Portfolio" />
+  <meta property="og:description" content="PhD Candidate in Applied Mathematics at the University of Houston" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #2563EB;
+      --primary-dark: #1d4ed8;
+      --primary-light: #eff6ff;
+      --accent:    #f59e0b;
+      --dark:      #0f172a;
+      --text:      #1e293b;
+      --text-light:#64748b;
+      --border:    #e2e8f0;
+      --bg:        #ffffff;
+      --bg-alt:    #f8fafc;
+      --radius:    10px;
+      --shadow:    0 4px 24px rgba(37,99,235,0.10);
+      --nav-h:     68px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Navbar ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 999;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      transition: box-shadow 0.3s;
+    }
+    #navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Merriweather', serif;
+      font-weight: 700; font-size: 1.05rem;
+      color: var(--dark);
+      letter-spacing: -0.3px;
+    }
+    .nav-brand span { color: var(--primary); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--text-light);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); text-decoration: none; }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px;
+      background: none; border: none;
+    }
+    .hamburger span {
+      width: 24px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ── Mobile nav ── */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; position: absolute;
+        top: var(--nav-h); left: 0; width: 100%;
+        background: white; flex-direction: column;
+        padding: 16px 24px 24px; gap: 16px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+    }
+
+    /* ── Layout ── */
+    section { padding: 80px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.75rem; font-weight: 700;
+      color: var(--dark); margin-bottom: 8px;
+    }
+    .section-title::after {
+      content: ''; display: block;
+      width: 48px; height: 3px;
+      background: var(--primary);
+      border-radius: 2px; margin-top: 10px;
+    }
+    .section-intro {
+      color: var(--text-light); font-size: 0.95rem;
+      margin-bottom: 40px; margin-top: 8px;
+    }
+    .alt-bg { background: var(--bg-alt); }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+      display: flex; align-items: center;
+      padding-top: calc(var(--nav-h) + 40px);
+      padding-bottom: 80px;
+      padding-left: 24px; padding-right: 24px;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(37,99,235,0.35) 0%, transparent 65%);
+    }
+    .hero-inner {
+      display: flex; align-items: center; gap: 60px;
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto; width: 100%;
+    }
+    .hero-photo {
+      width: 220px; height: 220px; flex-shrink: 0;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.2);
+      background: linear-gradient(135deg, #2563EB, #60a5fa);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem; color: rgba(255,255,255,0.9);
+      box-shadow: 0 8px 40px rgba(37,99,235,0.5);
+      overflow: hidden;
+    }
+    .hero-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-text { color: white; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(37,99,235,0.5);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero-name {
+      font-family: 'Merriweather', serif;
+      font-size: 3rem; font-weight: 700;
+      line-height: 1.15; margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .hero-title {
+      font-size: 1.15rem; color: rgba(255,255,255,0.75);
+      margin-bottom: 6px; font-weight: 400;
+    }
+    .hero-inst {
+      font-size: 1rem; color: var(--accent);
+      font-weight: 600; margin-bottom: 20px;
+    }
+    .hero-research {
+      font-size: 0.9rem; color: rgba(255,255,255,0.6);
+      max-width: 480px; margin-bottom: 32px;
+      border-left: 3px solid var(--primary);
+      padding-left: 14px;
+    }
+    .hero-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 22px; border-radius: 8px;
+      font-size: 0.875rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s;
+      text-decoration: none !important;
+    }
+    .btn-primary {
+      background: var(--primary); color: white;
+      box-shadow: 0 4px 15px rgba(107,63,160,0.4);
+    }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.4);
+      color: white; background: transparent;
+    }
+    .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+    .hero-stats {
+      display: flex; gap: 40px; margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-stat-num {
+      font-size: 2rem; font-weight: 700; color: white; line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.78rem; color: rgba(255,255,255,0.5);
+      text-transform: uppercase; letter-spacing: 0.8px; margin-top: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner { flex-direction: column; text-align: center; gap: 30px; }
+      .hero-photo { width: 160px; height: 160px; }
+      .hero-name { font-size: 2rem; }
+      .hero-links { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-research { text-align: left; }
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+    }
+    .about-text p { margin-bottom: 16px; color: var(--text); line-height: 1.8; }
+    .about-info-list { list-style: none; }
+    .about-info-list li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .about-info-list li:last-child { border-bottom: none; }
+    .info-label { font-weight: 600; color: var(--primary); min-width: 90px; flex-shrink: 0; }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Research ── */
+    .research-cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;
+    }
+    .research-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px;
+      transition: all 0.25s;
+      border-top: 3px solid transparent;
+    }
+    .research-card:hover {
+      transform: translateY(-3px); box-shadow: var(--shadow);
+      border-top-color: var(--primary);
+    }
+    .research-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--primary-light); color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 14px;
+    }
+    .research-card h3 { font-size: 1rem; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+    .research-card p { font-size: 0.875rem; color: var(--text-light); line-height: 1.6; }
+
+    /* ── Publications ── */
+    .pub-list { display: flex; flex-direction: column; gap: 20px; }
+    .pub-item {
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 28px;
+      display: flex; gap: 20px;
+      transition: box-shadow 0.2s;
+    }
+    .pub-item:hover { box-shadow: var(--shadow); }
+    .pub-num {
+      font-size: 1.5rem; font-weight: 700; color: var(--primary);
+      opacity: 0.3; line-height: 1; min-width: 28px; padding-top: 2px;
+    }
+    .pub-content { flex: 1; }
+    .pub-title {
+      font-weight: 600; font-size: 1rem; color: var(--dark);
+      margin-bottom: 6px; line-height: 1.5;
+    }
+    .pub-authors { font-size: 0.875rem; color: var(--text-light); margin-bottom: 6px; }
+    .pub-authors strong { color: var(--text); }
+    .pub-journal { font-style: italic; font-size: 0.875rem; color: var(--text-light); margin-bottom: 10px; }
+    .pub-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      display: inline-block; padding: 3px 10px;
+      border-radius: 20px; font-size: 0.76rem; font-weight: 600;
+    }
+    .tag-pub { background: #eef2ff; color: #4338ca; }
+    .tag-accept { background: #f0fdf4; color: #16a34a; }
+    .tag-doi { background: var(--primary-light); color: var(--primary); }
+
+    /* ── Education ── */
+    .edu-timeline { position: relative; padding-left: 28px; }
+    .edu-timeline::before {
+      content: ''; position: absolute; left: 0; top: 8px;
+      bottom: 8px; width: 2px; background: var(--border);
+    }
+    .edu-item { position: relative; margin-bottom: 36px; }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-dot {
+      position: absolute; left: -34px; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--primary); border: 2px solid white;
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+    .edu-degree {
+      font-weight: 700; font-size: 1rem; color: var(--dark);
+    }
+    .edu-school { font-size: 0.9rem; color: var(--primary); font-weight: 500; margin: 2px 0; }
+    .edu-meta { font-size: 0.83rem; color: var(--text-light); }
+    .edu-note {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 6px; font-size: 0.82rem;
+      background: #fef9ec; color: #a16207;
+      padding: 3px 10px; border-radius: 20px; font-weight: 500;
+    }
+
+    /* ── Teaching ── */
+    .teaching-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .teaching-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px;
+    }
+    .teaching-card h3 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .teaching-inst { font-size: 0.85rem; color: var(--primary); font-weight: 500; margin-bottom: 4px; }
+    .teaching-date { font-size: 0.8rem; color: var(--text-light); margin-bottom: 12px; }
+    .teaching-list { list-style: none; }
+    .teaching-list li {
+      font-size: 0.875rem; color: var(--text);
+      padding: 4px 0 4px 16px; position: relative;
+    }
+    .teaching-list li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--primary); font-size: 0.75rem;
+    }
+    @media (max-width: 768px) { .teaching-grid { grid-template-columns: 1fr; } }
+
+    /* ── Conferences ── */
+    .conf-list { display: flex; flex-direction: column; gap: 16px; }
+    .conf-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 20px;
+    }
+    .conf-icon {
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: var(--primary-light); color: var(--primary);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .conf-title { font-weight: 600; font-size: 0.9rem; color: var(--dark); margin-bottom: 2px; }
+    .conf-meta { font-size: 0.82rem; color: var(--text-light); }
+
+    /* ── Awards ── */
+    .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .award-item {
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .award-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .award-title { font-weight: 600; font-size: 0.9rem; color: var(--dark); margin-bottom: 3px; }
+    .award-org { font-size: 0.82rem; color: var(--text-light); }
+
+    /* ── Skills ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .skill-group {
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px;
+    }
+    .skill-group h3 {
+      font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--primary); margin-bottom: 12px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-tag {
+      background: var(--bg-alt); border: 1px solid var(--border);
+      color: var(--text); font-size: 0.8rem;
+      padding: 4px 10px; border-radius: 6px;
+    }
+
+    /* ── Service ── */
+    .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .service-group h3 {
+      font-size: 0.9rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--primary);
+      margin-bottom: 16px; padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary-light);
+    }
+    .service-list { list-style: none; }
+    .service-list li {
+      padding: 8px 0; border-bottom: 1px solid var(--border);
+      font-size: 0.875rem; color: var(--text);
+      padding-left: 16px; position: relative;
+    }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li::before {
+      content: '●'; position: absolute; left: 0;
+      color: var(--primary); font-size: 0.5rem; top: 14px;
+    }
+    @media (max-width: 768px) { .service-grid { grid-template-columns: 1fr; } }
+
+    /* ── Contact ── */
+    #contact {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: white; text-align: center;
+    }
+    #contact .section-title { color: white; }
+    #contact .section-title::after { background: var(--accent); }
+    #contact .section-intro { color: rgba(255,255,255,0.6); }
+    .contact-cards {
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius); padding: 20px 28px;
+      min-width: 180px; text-align: center;
+      transition: all 0.2s;
+    }
+    .contact-card:hover { background: rgba(255,255,255,0.10); }
+    .contact-card-icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .contact-card-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+    .contact-card-value { font-size: 0.9rem; color: rgba(255,255,255,0.9); font-weight: 500; }
+    .contact-card-value a { color: var(--accent); }
+
+    /* ── Footer ── */
+    footer {
+      background: #0f0f1a; color: rgba(255,255,255,0.4);
+      text-align: center; padding: 24px;
+      font-size: 0.82rem;
+    }
+    footer a { color: rgba(255,255,255,0.5); }
+
+    /* ── Scroll animations ── */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand"><span>K</span>amrun Nahar Mily</div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero">
+    <div class="hero-inner">
+
+      <!-- Profile photo placeholder — replace the K span with: <img src="photo.jpg" alt="Kamrun Nahar Mily" /> -->
+      <div class="hero-photo">
+        <span>K</span>
+      </div>
+
+      <div class="hero-text">
+        <div class="hero-badge">University of Houston · Mathematics</div>
+        <h1 class="hero-name">Kamrun Nahar Mily</h1>
+        <p class="hero-title">PhD Candidate in Applied Mathematics</p>
+        <p class="hero-inst">Department of Mathematics, University of Houston</p>
+        <p class="hero-research">
+          Research Focus: Agent-Based Modeling for Crowd and Crime Dynamics
+        </p>
+        <div class="hero-links">
+          <a href="mailto:kmily@cougarnet.uh.edu" class="btn btn-primary">✉ Email Me</a>
+          <a href="#publications" class="btn btn-outline">📄 Publications</a>
+          <a href="CV-6.pdf" target="_blank" class="btn btn-outline">📋 Download CV</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">2</div>
+            <div class="hero-stat-label">Publications</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">4+</div>
+            <div class="hero-stat-label">Yrs Teaching</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">🥇</div>
+            <div class="hero-stat-label">Gold Medal</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">1st</div>
+            <div class="hero-stat-label">3MT Winner</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section id="about">
+    <div class="container fade-in">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-intro">A little about my background and current work</p>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I am a PhD Candidate in Applied Mathematics at the University of Houston, where I work under the supervision of Dr. Annalisa Quaini. My research sits at the intersection of mathematical modeling, scientific computing, and social phenomena — specifically, I develop agent-based and kinetic models to understand crowd dynamics and crime patterns in urban settings.
+          </p>
+          <p>
+            Before joining UH, I earned my Master's degree from the University of Dhaka with the highest distinction — receiving the A.F. Mujibur Rahman Gold Medal for First Class First — and subsequently taught mathematics at Primeasia University for four years, developing a deep passion for both research and pedagogy.
+          </p>
+          <p>
+            I am also an active member of the Association for Women in Mathematics (AWM) at UH, where I have served as Communication Chair and Treasurer, and I am committed to outreach and mentoring in the mathematical community.
+          </p>
+        </div>
+        <div>
+          <ul class="about-info-list">
+            <li><span class="info-label">Position</span> PhD Candidate (Expected Fall 2026)</li>
+            <li><span class="info-label">Institution</span> University of Houston</li>
+            <li><span class="info-label">Department</span> Mathematics</li>
+            <li><span class="info-label">Office</span> PGH-611, Houston, TX 77012</li>
+            <li><span class="info-label">Email</span> <a href="mailto:kmily@cougarnet.uh.edu">kmily@cougarnet.uh.edu</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Research ── -->
+  <section id="research" class="alt-bg">
+    <div class="container fade-in">
+      <h2 class="section-title">Research Interests</h2>
+      <p class="section-intro">My work bridges mathematical theory and real-world social dynamics</p>
+      <div class="research-cards">
+        <div class="research-card">
+          <div class="research-icon">🧑‍🤝‍🧑</div>
+          <h3>Agent-Based Modeling</h3>
+          <p>Developing computational models for crowd dynamics and crime pattern analysis in urban environments.</p>
+        </div>
+        <div class="research-card">
+          <div class="research-icon">🔬</div>
+          <h3>Pattern Formation</h3>
+          <p>Parameter learning and pattern formation in complex systems using data-driven and kinetic approaches.</p>
+        </div>
+        <div class="research-card">
+          <div class="research-icon">⚙️</div>
+          <h3>Scientific Computing</h3>
+          <p>Numerical optimization, finite element methods, and high-performance scientific computing techniques.</p>
+        </div>
+        <div class="research-card">
+          <div class="research-icon">📊</div>
+          <h3>Social Phenomena Modeling</h3>
+          <p>Mathematical frameworks for understanding and predicting social phenomena including crime and collective behavior.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Publications ── -->
+  <section id="publications">
+    <div class="container fade-in">
+      <h2 class="section-title">Publications</h2>
+      <p class="section-intro">Peer-reviewed research in applied mathematics and mathematical modeling</p>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-num">2</div>
+          <div class="pub-content">
+            <div class="pub-title">A finite element framework for simulating residential burglary in realistic urban geometries</div>
+            <div class="pub-authors">Baoli Hao, <strong>Kamrun N. Mily</strong>, Annalisa Quaini, Ming Zhong</div>
+            <div class="pub-journal">Mathematical Models and Methods in Applied Sciences (2026) — Accepted</div>
+            <div class="pub-tags">
+              <span class="tag tag-accept">✓ Accepted</span>
+              <a href="https://doi.org/10.48550/arXiv.2508.11055" target="_blank" class="tag tag-doi">arXiv preprint</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-num">1</div>
+          <div class="pub-content">
+            <div class="pub-title">Data-driven learning to enhance a kinetic model of distressed crowd dynamics</div>
+            <div class="pub-authors">Daewa Kim, Demetrio Labate, <strong>Kamrun N. Mily</strong>, Annalisa Quaini</div>
+            <div class="pub-journal">Mathematical Models and Methods in Applied Sciences, 35(7), 1609–1636 (2025)</div>
+            <div class="pub-tags">
+              <span class="tag tag-pub">Published</span>
+              <a href="https://doi.org/10.1142/S021820252540007X" target="_blank" class="tag tag-doi">DOI: 10.1142/S021820252540007X</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Teaching ── -->
+  <section id="teaching" class="alt-bg">
+    <div class="container fade-in">
+      <h2 class="section-title">Teaching Experience</h2>
+      <p class="section-intro">Committed to excellence in mathematics education at undergraduate and graduate levels</p>
+      <div class="teaching-grid">
+
+        <div class="teaching-card">
+          <h3>Instructor of Record</h3>
+          <div class="teaching-inst">University of Houston</div>
+          <div class="teaching-date">Spring 2026 – Present</div>
+          <ul class="teaching-list">
+            <li>MATH 2131: Linear Algebra with MATLAB</li>
+          </ul>
+        </div>
+
+        <div class="teaching-card">
+          <h3>Graduate Teaching Assistant</h3>
+          <div class="teaching-inst">University of Houston</div>
+          <div class="teaching-date">Spring 2022 – Present</div>
+          <ul class="teaching-list">
+            <li>Led recitation sections for Calculus I–II (80+ students/semester)</li>
+            <li>Conducted extended office hours and tutoring sessions</li>
+            <li>Guided students through proofs and exam preparation</li>
+            <li>Collaborated with faculty on grading and exam design</li>
+          </ul>
+        </div>
+
+        <div class="teaching-card">
+          <h3>Lecturer</h3>
+          <div class="teaching-inst">Primeasia University, Dhaka, Bangladesh</div>
+          <div class="teaching-date">August 2017 – July 2021</div>
+          <ul class="teaching-list">
+            <li>Primary instructor for 6 courses/semester (up to 80 students)</li>
+            <li>Courses: Calculus, ODE, Complex Analysis, Numerical Methods, Linear Algebra</li>
+            <li>Designed syllabi and mentored undergraduate research projects</li>
+            <li>Served on curriculum development committee</li>
+          </ul>
+        </div>
+
+        <div class="teaching-card" style="background: var(--primary-light); border-color: #c4a0e8;">
+          <h3 style="color: var(--primary);">Courses Taught</h3>
+          <div class="teaching-inst">Across all positions</div>
+          <div class="teaching-date">2017 – Present</div>
+          <div style="display:flex; flex-wrap:wrap; gap:7px; margin-top:10px;">
+            <span class="skill-tag">Linear Algebra</span>
+            <span class="skill-tag">Calculus I–II</span>
+            <span class="skill-tag">ODE</span>
+            <span class="skill-tag">Complex Analysis</span>
+            <span class="skill-tag">Numerical Methods</span>
+            <span class="skill-tag">Business Math</span>
+            <span class="skill-tag">MATLAB</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Education ── -->
+  <section id="education">
+    <div class="container fade-in">
+      <h2 class="section-title">Education</h2>
+      <p class="section-intro">Academic training in mathematics across Bangladesh and the United States</p>
+      <div class="edu-timeline">
+
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-degree">Doctor of Philosophy in Applied Mathematics</div>
+          <div class="edu-school">University of Houston, Houston, Texas, USA</div>
+          <div class="edu-meta">Spring 2022 – Expected Fall 2026</div>
+          <div class="edu-meta" style="margin-top:4px;">Focus: Agent-Based Modeling for Crowd and Crime Dynamics</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-degree">Master of Science in Applied Mathematics</div>
+          <div class="edu-school">University of Houston, Houston, Texas, USA</div>
+          <div class="edu-meta">Completed 2025 · GPA: 3.770/4.00</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-degree">Master of Science in Applied Mathematics</div>
+          <div class="edu-school">University of Dhaka, Dhaka, Bangladesh</div>
+          <div class="edu-meta">2016 – 2017 · GPA: 3.97/4.00</div>
+          <div class="edu-note">🥇 A.F. Mujibur Rahman Gold Medal – First Class First</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-degree">Bachelor of Science in Mathematics</div>
+          <div class="edu-school">University of Dhaka, Dhaka, Bangladesh</div>
+          <div class="edu-meta">2010 – 2015 · CGPA: 3.49/4.00</div>
+          <div class="edu-meta" style="margin-top:4px;">Project: A Study of Differential Equations in Population Biology</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Conferences ── -->
+  <section id="conferences" class="alt-bg">
+    <div class="container fade-in">
+      <h2 class="section-title">Conferences & Presentations</h2>
+      <p class="section-intro">Sharing research with the broader mathematical community</p>
+      <div class="conf-list">
+
+        <div class="conf-item">
+          <div class="conf-icon">🏆</div>
+          <div>
+            <div class="conf-title">First Place Winner – Three-Minute Thesis (3MT) Competition</div>
+            <div class="conf-meta">AMS Student Chapter, University of Houston · 2025</div>
+          </div>
+        </div>
+
+        <div class="conf-item">
+          <div class="conf-icon">🎙️</div>
+          <div>
+            <div class="conf-title">Co-organizer & Presenter – Minisymposium on Agent-Based Modeling</div>
+            <div class="conf-meta">SIAM TX-Louisiana Sectional Conference, UT Austin · September 26–28, 2025</div>
+          </div>
+        </div>
+
+        <div class="conf-item">
+          <div class="conf-icon">📋</div>
+          <div>
+            <div class="conf-title">Poster Presentation – "Data-driven Learning to Enhance a Kinetic Model of Distressed Crowd Dynamics"</div>
+            <div class="conf-meta">CBMS Conference, University of Houston · December 8–12, 2025</div>
+          </div>
+        </div>
+
+        <div class="conf-item">
+          <div class="conf-icon">🎓</div>
+          <div>
+            <div class="conf-title">Attendee and Presenter – Graduate Student Paper Presentation (GSPP 2026)</div>
+            <div class="conf-meta">AMS and SIAM Student Chapters · 2026</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Awards ── -->
+  <section id="awards">
+    <div class="container fade-in">
+      <h2 class="section-title">Honors & Awards</h2>
+      <p class="section-intro">Recognition for academic and professional excellence</p>
+      <div class="awards-grid">
+        <div class="award-item">
+          <div class="award-icon">🎓</div>
+          <div>
+            <div class="award-title">Graduate Tuition Fellowship</div>
+            <div class="award-org">University of Houston · 2021 – Present</div>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">🏅</div>
+          <div>
+            <div class="award-title">Teaching Assistantship Award</div>
+            <div class="award-org">University of Houston · 2021 – Present</div>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">🌏</div>
+          <div>
+            <div class="award-title">Bangladesh Sweden Trust Fund Fellowship</div>
+            <div class="award-org">Ministry of Finance, Bangladesh · 2021</div>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">🥇</div>
+          <div>
+            <div class="award-title">A.F. Mujibur Rahman Gold Medal</div>
+            <div class="award-org">First Class First (MS) · University of Dhaka · 2017</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  <section id="skills" class="alt-bg">
+    <div class="container fade-in">
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-intro">Tools and languages used in research and teaching</p>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Programming</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python (Advanced)</span>
+            <span class="skill-tag">MATLAB (Advanced)</span>
+            <span class="skill-tag">R (Intermediate)</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Mathematical Software</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Mathematica</span>
+            <span class="skill-tag">SageMath</span>
+            <span class="skill-tag">COMSOL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Data Analysis</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">SciPy</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">Matplotlib</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Document & Dev Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">LaTeX</span>
+            <span class="skill-tag">Beamer</span>
+            <span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">Git/GitHub</span>
+            <span class="skill-tag">Canvas LMS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Service ── -->
+  <section id="service">
+    <div class="container fade-in">
+      <h2 class="section-title">Leadership & Service</h2>
+      <p class="section-intro">Supporting women in mathematics and building academic community</p>
+      <div class="service-grid">
+        <div class="service-group">
+          <h3>University Service</h3>
+          <ul class="service-list">
+            <li><strong>Treasurer</strong>, Association for Women in Mathematics (AWM), UH<br>Spring 2024 – Spring 2025<br><small style="color:var(--text-light);">Managed financial records; coordinated fundraising for student development</small></li>
+            <li><strong>Communication Chair</strong>, AWM Chapter, UH<br>Fall 2022 – Fall 2023<br><small style="color:var(--text-light);">Developed communication strategies; organized networking events and workshops</small></li>
+          </ul>
+        </div>
+        <div class="service-group">
+          <h3>Professional Service</h3>
+          <ul class="service-list">
+            <li>Conference Minisymposium Co-organizer, SIAM TX-LA Section · 2025</li>
+            <li>Peer Reviewer, Graduate Student Research Symposium · 2024 – Present</li>
+            <li>Volunteer Tutor, Houston-area Mathematics Outreach Programs · 2022 – Present</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="container fade-in">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-intro">Feel free to reach out for collaborations, research discussions, or inquiries</p>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="contact-card-icon">✉️</div>
+          <div class="contact-card-label">Email</div>
+          <div class="contact-card-value"><a href="mailto:kmily@cougarnet.uh.edu">kmily@cougarnet.uh.edu</a></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">🏛️</div>
+          <div class="contact-card-label">Office</div>
+          <div class="contact-card-value">PGH-611, Houston, TX 77012</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">🎓</div>
+          <div class="contact-card-label">Department</div>
+          <div class="contact-card-value">Mathematics, University of Houston</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <p>© 2026 Kamrun Nahar Mily · PhD Candidate in Applied Mathematics · University of Houston</p>
+    <p style="margin-top:6px;">Hosted free on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+  </footer>
+
+  <!-- ── Scripts ── -->
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Navbar scroll shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+
+    // Active nav link highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navAs = document.querySelectorAll('.nav-links a');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navAs.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => obs.observe(s));
+
+    // Fade-in on scroll
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const fadeObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => fadeObs.observe(el));
+  </script>
+</body>
+</html>
